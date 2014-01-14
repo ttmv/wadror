@@ -5,7 +5,7 @@
 <h2>
 <p> Number of beers: <%= @brewery.beers.count %> </p> 
 <p><i>
-Established at <%= @brewery.year %>
+  <%= @brewery.year %>
 </i></p>
 
 <%= link_to 'Edit', edit_brewery_path(@brewery) %> |
