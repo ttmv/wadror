@@ -15,5 +15,13 @@ Established at <%= @brewery.year %>
  <% end %>
 </p>
 
+<p>
+  Brewery has <%= pluralize(@brewery.ratings.count, 'rating')%>.
+  <% if !@brewery.ratings.empty? %>
+    Average <%= @brewery.average_rating %>
+  <% end %>
+</p>
+
+
 <%= link_to 'Edit', edit_brewery_path(@brewery) %> |
 <%= link_to 'Back', breweries_path %>
