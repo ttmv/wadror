@@ -3,10 +3,8 @@ class Beer < ActiveRecord::Base
   has_many :ratings, :dependent => :destroy
 
   include RatingAverage
-  #def average_rating
-  #  #ratings.average('score').to_f
-  #  ratings.inject(0) {|n, r| n + r.score}.to_f / ratings.count
-  #end
+  
+  validates :name, presence: true
 
   def to_s
     "#{name}; #{brewery.name}"
