@@ -25,6 +25,15 @@
 
 <p>Average: <%= @user.average_rating %></p>  
 <% end %>
+
+<h2> Memberships </h2>
+<ul>
+<% @user.beer_clubs.each do |bc| %>
+  <li> <%= link_to bc.name, bc %> </li>
+<% end %>
+</ul>
+
+
 <% if @user == current_user %>
   <%= link_to 'Edit', edit_user_path(@user) %> 
   <%= link_to 'Destroy', @user, method: :delete, data: { confirm: 'Are you sure?' } %>
