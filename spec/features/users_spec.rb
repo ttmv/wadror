@@ -30,5 +30,19 @@ describe "User" do
       expect(current_path).to eq(signin_path)
       expect(page).to have_content 'username and password do not match'
     end
+
+    it "can see own ratings on own page" do
+      user1 = FactoryGirl.create(:user, username: "asdf")
+      user2 = FactoryGirl.create(:user, username: "gngn")
+      create_beers_with_ratings(44, 20, user1)
+      create_beer_with_rating(5, user2)
+
+      visit user_path(user1)
+
+      expect(page).to have_content 'anonymous 44'
+      expect(page).to have_content 'anonymous 20'
+      expect(page).not_to have_content 'anonymous 5'
+    end
   end
 end
+
