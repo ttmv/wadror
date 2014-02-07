@@ -1,8 +1,10 @@
 require 'spec_helper'
 
 describe "User" do
+  let!(:user) { FactoryGirl.create :user }
+
   before :each do
-    FactoryGirl.create :user
+#    user = FactoryGirl.create :user
   end
 
   it "when signed up with good credentials, is added to the system" do
@@ -30,6 +32,19 @@ describe "User" do
       expect(current_path).to eq(signin_path)
       expect(page).to have_content 'username and password do not match'
     end
+
+    it "can remove own ratings from db if signed in" do
+      sign_in(username:"Pekka", password:"Foobar1")
+      create_beers_with_ratings(22, 33, 44, user)
+      visit user_path(user)
+      
+      expect{
+        page.first(:link, "delete").click
+      }.to change{Rating.count}.from(3).to(2)
+      
+      expect(Rating.find_by score:22).to eq(nil)
+    end
+
 
     it "can see own ratings on own page" do
       user1 = FactoryGirl.create(:user, username: "asdf")

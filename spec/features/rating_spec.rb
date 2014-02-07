@@ -26,16 +26,12 @@ describe "Rating" do
   end
 
   it "is shown on ratings page if on db" do
-    create_ratings(user)  
+    create_beers_with_ratings(10, 20, user)
     visit ratings_path
+
     expect(page).to have_content 'Number of ratings: 2'
     expect(page).to have_content 'anonymous 10'
     expect(page).to have_content 'anonymous 20'    
   end
 end
 
-def create_ratings(user)
-  beer = FactoryGirl.create(:beer)
-  FactoryGirl.create(:rating, beer:beer, user:user)
-  FactoryGirl.create(:rating2, beer:beer, user:user)
-end
