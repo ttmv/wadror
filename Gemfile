@@ -20,6 +20,7 @@ group :test do
   gem 'factory_girl_rails'
   gem 'capybara'
   gem 'launchy'
+  gem 'simplecov', require: false
 end
 
 
