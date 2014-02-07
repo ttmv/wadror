@@ -1,4 +1,0 @@
-== README
-
-Heroku: http://glacial-stream-4232.herokuapp.com/
-
