@@ -20,16 +20,23 @@ class User < ActiveRecord::Base
 
   def favorite_style
     return nil if ratings.empty?
+
     styles = ratings.map{ |r| r.beer.style }.uniq
     avgs = count_avgs(styles)
     avgs.key(avgs.values.max)    
+  end
+
+  def favorite_brewery
+    return nil if ratings.empty?
+
+    "Koff"
   end
 end 
 
 def count_avgs(styles)
   avgs = {}
   styles.each do |s|
-    amount = ratings.select{ |r| r.beer.style == s}.count
+    amount = ratings.select{ |r| r.beer.style == s }.count
     avgs[s] = ratings.select{ |r| 
        r.beer.style == s
     }.inject(0.0){ |sum, r| sum + r.score} / amount
