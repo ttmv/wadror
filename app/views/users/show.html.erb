@@ -23,8 +23,14 @@
     <% end %>
   </ul>
 
-  <p>Average: <%= @user.average_rating %></p>  
-  <p>Favorite style: <%= @user.favorite_style %></p>
+  <p>Average: <%= @user.average_rating %></p>
+   
+  <p>
+     <ul>
+       <li> Favorite style: <%= @user.favorite_style %> </li>
+       <li>Favorite brewery: <%= @user.favorite_brewery %> </li>
+    </ul>
+  </p>
 <% end %>
 
 
