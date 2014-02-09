@@ -14,26 +14,26 @@
       <img src="./assets/0.8.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2014-02-09T04:41:09+02:00">2014-02-09T04:41:09+02:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2014-02-09T15:27:02+02:00">2014-02-09T15:27:02+02:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="red">79.2%</span></span>
+    (<span class="covered_percent"><span class="red">79.88%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.54
+         1.57
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>41</b> files in total.
-    <b>500</b> relevant lines. 
-    <span class="green"><b>396</b> lines covered</span> and
+    <b>517</b> relevant lines. 
+    <span class="green"><b>413</b> lines covered</span> and
     <span class="red"><b>104</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -217,7 +217,7 @@
         <td>18</td>
         <td>11</td>
         <td>7</td>
-        <td>2.3</td>
+        <td>2.5</td>
       </tr>
       
       <tr>
@@ -243,11 +243,11 @@
       <tr>
         <td class="strong"><a href="#876726b80a88318a2bd2f1c6f89460d898966cff" class="src_link" title="app/models/user.rb">app/models/user.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>20</td>
-        <td>14</td>
-        <td>14</td>
+        <td>25</td>
+        <td>17</td>
+        <td>17</td>
         <td>0</td>
-        <td>1.2</td>
+        <td>1.4</td>
       </tr>
       
       <tr>
@@ -443,11 +443,11 @@
       <tr>
         <td class="strong"><a href="#b7253874a72f2e70d33ba90ed27d25b9ac1db564" class="src_link" title="spec/models/user_spec.rb">spec/models/user_spec.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>86</td>
-        <td>41</td>
-        <td>41</td>
+        <td>112</td>
+        <td>55</td>
+        <td>55</td>
         <td>0</td>
-        <td>1.1</td>
+        <td>1.2</td>
       </tr>
       
       <tr>
@@ -457,7 +457,7 @@
         <td>13</td>
         <td>13</td>
         <td>0</td>
-        <td>6.9</td>
+        <td>7.8</td>
       </tr>
       
     </tbody>
@@ -3760,8 +3760,8 @@
           <code class="ruby">  def year_not_later_than_current</code>
         </li>
       
-        <li class="covered" data-hits="31" data-linenumber="13">
-          <span class="hits">31</span>
+        <li class="covered" data-hits="35" data-linenumber="13">
+          <span class="hits">35</span>
           
           <code class="ruby">    if year &gt; Time.now.year</code>
         </li>
@@ -4015,8 +4015,8 @@
     <h3>app/models/user.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>14</b> relevant lines. 
-      <span class="green"><b>14</b> lines covered</span> and
+      <b>17</b> relevant lines. 
+      <span class="green"><b>17</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -4139,6 +4139,36 @@
         </li>
       
         <li class="never" data-hits="" data-linenumber="20">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="21">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def favorite_style</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="22">
+          <span class="hits">3</span>
+          
+          <code class="ruby">    return nil if ratings.empty?</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="23">
+          <span class="hits">2</span>
+          
+          <code class="ruby">    ratings.first.beer.style</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="24">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="25">
           
           
           <code class="ruby">end </code>
@@ -6967,8 +6997,8 @@
     <h3>spec/models/user_spec.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>41</b> relevant lines. 
-      <span class="green"><b>41</b> lines covered</span> and
+      <b>55</b> relevant lines. 
+      <span class="green"><b>55</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -7417,43 +7447,43 @@
         <li class="never" data-hits="" data-linenumber="74">
           
           
-          <code class="ruby">end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="75">
-          
-          
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="76">
+        <li class="covered" data-hits="1" data-linenumber="75">
+          <span class="hits">1</span>
           
+          <code class="ruby">  describe &quot;favorite style&quot; do</code>
+        </li>
+      
+        <li class="covered" data-hits="5" data-linenumber="76">
+          <span class="hits">5</span>
           
-          <code class="ruby">#def create_beer_with_rating(score, user)</code>
+          <code class="ruby">    let(:user){FactoryGirl.create(:user) }</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="77">
           
           
-          <code class="ruby">#  beer = FactoryGirl.create(:beer)</code>
+          <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="78">
+        <li class="covered" data-hits="1" data-linenumber="78">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">#  FactoryGirl.create(:rating, score:score, beer:beer, user:user)</code>
+          <code class="ruby">    it &quot;has method for determining one&quot; do</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="79">
+        <li class="covered" data-hits="1" data-linenumber="79">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">#  beer</code>
+          <code class="ruby">      user.should respond_to :favorite_style</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="80">
           
           
-          <code class="ruby">#end</code>
+          <code class="ruby">    end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="81">
@@ -7462,31 +7492,187 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="82">
+        <li class="covered" data-hits="1" data-linenumber="82">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">#def create_beers_with_ratings(*scores, user)</code>
+          <code class="ruby">    it &quot;without ratings does not have one&quot; do</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="83">
+        <li class="covered" data-hits="1" data-linenumber="83">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">#  scores.each do |score|</code>
+          <code class="ruby">      expect(user.favorite_style).to eq(nil)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="84">
           
           
-          <code class="ruby">#    create_beer_with_rating(score, user)</code>
+          <code class="ruby">    end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="85">
           
           
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="86">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    it &quot;is the only rated if only one rating&quot; do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="87">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      style = create_beer_with_rating(32, user)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="88">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="89">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      expect(user.favorite_style).to eq(&quot;Lager&quot;)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="90">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="91">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="92">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    it &quot;is the one with highest average rating if several beers rated&quot; do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="93">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      create_beers_with_ratings(1,2,user)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="94">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      beer = FactoryGirl.create(:beer, style:&quot;IPA&quot;)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="95">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      best = FactoryGirl.create(:rating, score:30, beer:beer)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="96">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="97">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      expect(user.favorite_style).to eq(&quot;IPA&quot;)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="98">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="99">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="100">
+          
+          
+          <code class="ruby">end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="101">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="102">
+          
+          
+          <code class="ruby">#def create_beer_with_rating(score, user)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="103">
+          
+          
+          <code class="ruby">#  beer = FactoryGirl.create(:beer)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="104">
+          
+          
+          <code class="ruby">#  FactoryGirl.create(:rating, score:score, beer:beer, user:user)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="105">
+          
+          
+          <code class="ruby">#  beer</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="106">
+          
+          
+          <code class="ruby">#end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="107">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="108">
+          
+          
+          <code class="ruby">#def create_beers_with_ratings(*scores, user)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="109">
+          
+          
+          <code class="ruby">#  scores.each do |score|</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="110">
+          
+          
+          <code class="ruby">#    create_beer_with_rating(score, user)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="111">
+          
+          
           <code class="ruby">#  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="86">
+        <li class="never" data-hits="" data-linenumber="112">
           
           
           <code class="ruby">#end</code>
@@ -7570,20 +7756,20 @@
           <code class="ruby">  def create_beer_with_rating(score, user)</code>
         </li>
       
-        <li class="covered" data-hits="14" data-linenumber="11">
-          <span class="hits">14</span>
+        <li class="covered" data-hits="17" data-linenumber="11">
+          <span class="hits">17</span>
           
           <code class="ruby">    beer = FactoryGirl.create(:beer)</code>
         </li>
       
-        <li class="covered" data-hits="14" data-linenumber="12">
-          <span class="hits">14</span>
+        <li class="covered" data-hits="17" data-linenumber="12">
+          <span class="hits">17</span>
           
           <code class="ruby">    FactoryGirl.create(:rating, score:score, beer:beer, user:user)</code>
         </li>
       
-        <li class="covered" data-hits="14" data-linenumber="13">
-          <span class="hits">14</span>
+        <li class="covered" data-hits="17" data-linenumber="13">
+          <span class="hits">17</span>
           
           <code class="ruby">    beer</code>
         </li>
@@ -7606,14 +7792,14 @@
           <code class="ruby">  def create_beers_with_ratings(*scores, user)</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="17">
-          <span class="hits">4</span>
+        <li class="covered" data-hits="5" data-linenumber="17">
+          <span class="hits">5</span>
           
           <code class="ruby">    scores.each do |score|</code>
         </li>
       
-        <li class="covered" data-hits="12" data-linenumber="18">
-          <span class="hits">12</span>
+        <li class="covered" data-hits="14" data-linenumber="18">
+          <span class="hits">14</span>
           
           <code class="ruby">      create_beer_with_rating(score, user)</code>
         </li>
