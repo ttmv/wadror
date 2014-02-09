@@ -58,6 +58,26 @@ describe "User" do
       expect(page).to have_content 'anonymous 20'
       expect(page).not_to have_content 'anonymous 5'
     end
+
+    it "has favorite style on own page if has rated beers" do
+      create_beers_with_ratings(1,2,user)
+      beer = FactoryGirl.create(:beer, style:"IPA")
+      best = FactoryGirl.create(:rating, beer:beer, score:30, user:user)
+
+      visit user_path(user)
+
+      expect(page).to have_content 'Favorite style: IPA'
+    end
+
+    it "has favorite brewery on own page if has rated beers" do
+      create_brewery_with_rated_beer(21, "Brew1", user)
+      create_brewery_with_rated_beer(43, "Brew2", user)
+      create_brewery_with_rated_beer(33, "Brew1", user)
+
+      visit user_path(user)
+
+      expect(page).to have_content 'Favorite brewery: Brew2'
+    end
   end
 end
 

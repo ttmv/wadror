@@ -18,5 +18,11 @@ module OwnTestHelper
       create_beer_with_rating(score, user)
     end
   end
+
+  def create_brewery_with_rated_beer(score, name, user)
+    brewery = FactoryGirl.create(:brewery, name:name)
+    beer = FactoryGirl.create(:beer, brewery:brewery)
+    FactoryGirl.create(:rating, score:score, beer:beer, user:user)
+  end
 end
 
