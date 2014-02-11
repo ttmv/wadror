@@ -21,6 +21,7 @@ group :test do
   gem 'capybara'
   gem 'launchy'
   gem 'simplecov', require: false
+  gem 'webmock'
 end
 
 
@@ -65,4 +66,5 @@ gem 'bcrypt-ruby', '~> 3.1.2'
 # gem 'debugger', group: [:development, :test]
 
 gem 'httparty'
-gem 'webmock'
+
+gem "rails-settings-cached", "0.3.1"
