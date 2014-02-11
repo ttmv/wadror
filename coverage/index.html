@@ -14,14 +14,14 @@
       <img src="./assets/0.8.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2014-02-11T16:10:21+02:00">2014-02-11T16:10:21+02:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2014-02-11T17:36:17+02:00">2014-02-11T17:36:17+02:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="yellow">83.8%</span></span>
+    (<span class="covered_percent"><span class="yellow">83.95%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
@@ -32,8 +32,8 @@
   <a name="AllFiles"></a>
   <div>
     <b>46</b> files in total.
-    <b>642</b> relevant lines. 
-    <span class="green"><b>538</b> lines covered</span> and
+    <b>648</b> relevant lines. 
+    <span class="green"><b>544</b> lines covered</span> and
     <span class="red"><b>104</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -393,9 +393,9 @@
       <tr>
         <td class="strong"><a href="#6fe676d2f0eb1c25aeaa62b5f151f71a0a60d339" class="src_link" title="lib/beermapping_api.rb">lib/beermapping_api.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>18</td>
-        <td>11</td>
-        <td>11</td>
+        <td>25</td>
+        <td>15</td>
+        <td>15</td>
         <td>0</td>
         <td>2.7</td>
       </tr>
@@ -463,9 +463,9 @@
       <tr>
         <td class="strong"><a href="#11a6cd17b823c4031a1b6d335d49fcb6178ecab6" class="src_link" title="spec/lib/beermapping_api_spec.rb">spec/lib/beermapping_api_spec.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>41</td>
-        <td>23</td>
-        <td>23</td>
+        <td>44</td>
+        <td>25</td>
+        <td>25</td>
         <td>0</td>
         <td>1.0</td>
       </tr>
@@ -6045,8 +6045,8 @@
     <h3>lib/beermapping_api.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>11</b> relevant lines. 
-      <span class="green"><b>11</b> lines covered</span> and
+      <b>15</b> relevant lines. 
+      <span class="green"><b>15</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -6069,19 +6069,19 @@
         <li class="covered" data-hits="3" data-linenumber="3">
           <span class="hits">3</span>
           
-          <code class="ruby">    url = &quot;http://beermapping.com/webservice/loccity/#{key}/&quot;</code>
+          <code class="ruby">    city = city.downcase</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="4">
-          <span class="hits">3</span>
+        <li class="covered" data-hits="6" data-linenumber="4">
+          <span class="hits">6</span>
           
-          <code class="ruby">    response = HTTParty.get &quot;#{url}#{ERB::Util.url_encode(city)}&quot;</code>
+          <code class="ruby">    Rails.cache.fetch(city, expires_in: 1.week) {fetch_places_in(city)}</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="5">
-          <span class="hits">3</span>
+        <li class="never" data-hits="" data-linenumber="5">
           
-          <code class="ruby">    places = response.parsed_response[&quot;bmp_locations&quot;][&quot;location&quot;]</code>
+          
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="6">
@@ -6090,73 +6090,115 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="7">
-          <span class="hits">3</span>
+        <li class="covered" data-hits="1" data-linenumber="7">
+          <span class="hits">1</span>
           
-          <code class="ruby">    return [] if places.is_a?(Hash) and places[&#39;id&#39;].nil?</code>
+          <code class="ruby">  private</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="8">
           
           
-          <code class="ruby">      </code>
+          <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="9">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="1" data-linenumber="9">
+          <span class="hits">1</span>
           
-          <code class="ruby">    places = [places] if places.is_a?(Hash)</code>
+          <code class="ruby">  def self.fetch_places_in(city)</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="10">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="3" data-linenumber="10">
+          <span class="hits">3</span>
           
-          <code class="ruby">    @places = places.inject([]) do | set, place|</code>
+          <code class="ruby">    url = &quot;http://beermapping.com/webservice/loccity/#{key}/&quot;</code>
         </li>
       
-        <li class="covered" data-hits="8" data-linenumber="11">
-          <span class="hits">8</span>
+        <li class="covered" data-hits="3" data-linenumber="11">
+          <span class="hits">3</span>
           
-          <code class="ruby">      set &lt;&lt; Place.new(place)</code>
+          <code class="ruby">    response = HTTParty.get &quot;#{url}#{ERB::Util.url_encode(city)}&quot;</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="12">
+        <li class="covered" data-hits="3" data-linenumber="12">
+          <span class="hits">3</span>
           
-          
-          <code class="ruby">    end    </code>
+          <code class="ruby">    places = response.parsed_response[&quot;bmp_locations&quot;][&quot;location&quot;]</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="13">
           
           
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="14">
+          <span class="hits">3</span>
+          
+          <code class="ruby">    return [] if places.is_a?(Hash) and places[&#39;id&#39;].nil?</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="15">
+          
+          
+          <code class="ruby">      </code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="16">
+          <span class="hits">2</span>
+          
+          <code class="ruby">    places = [places] if places.is_a?(Hash)</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="17">
+          <span class="hits">2</span>
+          
+          <code class="ruby">    @places = places.inject([]) do | set, place|</code>
+        </li>
+      
+        <li class="covered" data-hits="8" data-linenumber="18">
+          <span class="hits">8</span>
+          
+          <code class="ruby">      set &lt;&lt; Place.new(place)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="19">
+          
+          
+          <code class="ruby">    end    </code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="20">
+          
+          
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="14">
+        <li class="never" data-hits="" data-linenumber="21">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="15">
+        <li class="covered" data-hits="1" data-linenumber="22">
           <span class="hits">1</span>
           
           <code class="ruby">  def self.key</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="16">
+        <li class="covered" data-hits="3" data-linenumber="23">
           <span class="hits">3</span>
           
           <code class="ruby">    &quot;73a8152f21a4d56ec27e367ca2ca9e28&quot;</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="17">
+        <li class="never" data-hits="" data-linenumber="24">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="18">
+        <li class="never" data-hits="" data-linenumber="25">
           
           
           <code class="ruby">end</code>
@@ -7671,8 +7713,8 @@
     <h3>spec/lib/beermapping_api_spec.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>23</b> relevant lines. 
-      <span class="green"><b>23</b> lines covered</span> and
+      <b>25</b> relevant lines. 
+      <span class="green"><b>25</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -7701,226 +7743,244 @@
         <li class="covered" data-hits="1" data-linenumber="4">
           <span class="hits">1</span>
           
-          <code class="ruby">  it &quot;When HTTP GET returns one entry, it is parsed and returned&quot; do</code>
+          <code class="ruby">  before :all do </code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="5">
           <span class="hits">1</span>
           
-          <code class="ruby">    canned_answer = &lt;&lt;-END_OF_STRING</code>
+          <code class="ruby">    Rails.cache.clear </code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="6">
           
           
-          <code class="ruby">&lt;?xml version=&#39;1.0&#39; encoding=&#39;utf-8&#39; ?&gt;&lt;bmp_locations&gt;&lt;location&gt;&lt;id&gt;13307&lt;/id&gt;&lt;name&gt;O&#39;Connell&#39;s Irish Bar&lt;/name&gt;&lt;status&gt;Beer Bar&lt;/status&gt;&lt;reviewlink&gt;http://beermapping.com/maps/reviews/reviews.php?locid=13307&lt;/reviewlink&gt;&lt;proxylink&gt;http://beermapping.com/maps/proxymaps.php?locid=13307&amp;amp;d=5&lt;/proxylink&gt;&lt;blogmap&gt;http://beermapping.com/maps/blogproxy.php?locid=13307&amp;amp;d=1&amp;amp;type=norm&lt;/blogmap&gt;&lt;street&gt;Rautatienkatu 24&lt;/street&gt;&lt;city&gt;Tampere&lt;/city&gt;&lt;state&gt;&lt;/state&gt;&lt;zip&gt;33100&lt;/zip&gt;&lt;country&gt;Finland&lt;/country&gt;&lt;phone&gt;35832227032&lt;/phone&gt;&lt;overall&gt;0&lt;/overall&gt;&lt;imagecount&gt;0&lt;/imagecount&gt;&lt;/location&gt;&lt;/bmp_locations&gt;</code>
+          <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="7">
+        <li class="covered" data-hits="1" data-linenumber="7">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">    END_OF_STRING</code>
+          <code class="ruby">  it &quot;When HTTP GET returns one entry, it is parsed and returned&quot; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="8">
           <span class="hits">1</span>
           
-          <code class="ruby">    stub_request(:get, /.*tampere/).to_return(body: canned_answer, headers:   { &#39;Content-Type&#39; =&gt; &quot;text/xml&quot; })</code>
+          <code class="ruby">    canned_answer = &lt;&lt;-END_OF_STRING</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="9">
           
           
+          <code class="ruby">&lt;?xml version=&#39;1.0&#39; encoding=&#39;utf-8&#39; ?&gt;&lt;bmp_locations&gt;&lt;location&gt;&lt;id&gt;13307&lt;/id&gt;&lt;name&gt;O&#39;Connell&#39;s Irish Bar&lt;/name&gt;&lt;status&gt;Beer Bar&lt;/status&gt;&lt;reviewlink&gt;http://beermapping.com/maps/reviews/reviews.php?locid=13307&lt;/reviewlink&gt;&lt;proxylink&gt;http://beermapping.com/maps/proxymaps.php?locid=13307&amp;amp;d=5&lt;/proxylink&gt;&lt;blogmap&gt;http://beermapping.com/maps/blogproxy.php?locid=13307&amp;amp;d=1&amp;amp;type=norm&lt;/blogmap&gt;&lt;street&gt;Rautatienkatu 24&lt;/street&gt;&lt;city&gt;Tampere&lt;/city&gt;&lt;state&gt;&lt;/state&gt;&lt;zip&gt;33100&lt;/zip&gt;&lt;country&gt;Finland&lt;/country&gt;&lt;phone&gt;35832227032&lt;/phone&gt;&lt;overall&gt;0&lt;/overall&gt;&lt;imagecount&gt;0&lt;/imagecount&gt;&lt;/location&gt;&lt;/bmp_locations&gt;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="10">
+          
+          
+          <code class="ruby">    END_OF_STRING</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="11">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    stub_request(:get, /.*tampere/).to_return(body: canned_answer, headers:   { &#39;Content-Type&#39; =&gt; &quot;text/xml&quot; })</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="12">
+          
+          
           <code class="ruby">    </code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="10">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    places = BeermappingApi.places_in(&quot;tampere&quot;)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="11">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="12">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    expect(places.size).to eq(1)</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="13">
           <span class="hits">1</span>
           
-          <code class="ruby">    place = places.first</code>
+          <code class="ruby">    places = BeermappingApi.places_in(&quot;tampere&quot;)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="14">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="14">
           
-          <code class="ruby">    expect(place.name).to eq(&quot;O&#39;Connell&#39;s Irish Bar&quot;)</code>
+          
+          <code class="ruby"></code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="15">
           <span class="hits">1</span>
           
-          <code class="ruby">    expect(place.street).to eq(&quot;Rautatienkatu 24&quot;)</code>
+          <code class="ruby">    expect(places.size).to eq(1)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="16">
+        <li class="covered" data-hits="1" data-linenumber="16">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">  end</code>
+          <code class="ruby">    place = places.first</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="17">
+        <li class="covered" data-hits="1" data-linenumber="17">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby"></code>
+          <code class="ruby">    expect(place.name).to eq(&quot;O&#39;Connell&#39;s Irish Bar&quot;)</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="18">
           <span class="hits">1</span>
           
-          <code class="ruby">  it &quot;when HTTP GET does not return any entries, an empty array is returned&quot; do</code>
+          <code class="ruby">    expect(place.street).to eq(&quot;Rautatienkatu 24&quot;)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="19">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="19">
           
-          <code class="ruby">    canned_answer = &lt;&lt;-END_OF_STRING</code>
+          
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="20">
           
           
-          <code class="ruby">&lt;?xml version=&#39;1.0&#39; encoding=&#39;utf-8&#39; ?&gt;&lt;bmp_locations&gt;&lt;location&gt;&lt;id&gt;&lt;/id&gt;&lt;name&gt;&lt;/name&gt;&lt;status&gt;&lt;/status&gt;&lt;reviewlink&gt;&lt;/reviewlink&gt;&lt;proxylink&gt;&lt;/proxylink&gt;&lt;blogmap&gt;&lt;/blogmap&gt;&lt;street&gt;&lt;/street&gt;&lt;city&gt;&lt;/city&gt;&lt;state&gt;&lt;/state&gt;&lt;zip&gt;&lt;/zip&gt;&lt;country&gt;&lt;/country&gt;&lt;phone&gt;&lt;/phone&gt;&lt;overall&gt;&lt;/overall&gt;&lt;imagecount&gt;&lt;/imagecount&gt;&lt;/location&gt;&lt;/bmp_locations&gt;</code>
+          <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="21">
+        <li class="covered" data-hits="1" data-linenumber="21">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">    END_OF_STRING</code>
+          <code class="ruby">  it &quot;when HTTP GET does not return any entries, an empty array is returned&quot; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="22">
           <span class="hits">1</span>
           
-          <code class="ruby">    stub_request(:get, /.*kempele/).to_return(body: canned_answer, headers:   { &#39;Content-Type&#39; =&gt; &quot;text/xml&quot; })</code>
+          <code class="ruby">    canned_answer = &lt;&lt;-END_OF_STRING</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="23">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">&lt;?xml version=&#39;1.0&#39; encoding=&#39;utf-8&#39; ?&gt;&lt;bmp_locations&gt;&lt;location&gt;&lt;id&gt;&lt;/id&gt;&lt;name&gt;&lt;/name&gt;&lt;status&gt;&lt;/status&gt;&lt;reviewlink&gt;&lt;/reviewlink&gt;&lt;proxylink&gt;&lt;/proxylink&gt;&lt;blogmap&gt;&lt;/blogmap&gt;&lt;street&gt;&lt;/street&gt;&lt;city&gt;&lt;/city&gt;&lt;state&gt;&lt;/state&gt;&lt;zip&gt;&lt;/zip&gt;&lt;country&gt;&lt;/country&gt;&lt;phone&gt;&lt;/phone&gt;&lt;overall&gt;&lt;/overall&gt;&lt;imagecount&gt;&lt;/imagecount&gt;&lt;/location&gt;&lt;/bmp_locations&gt;</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="24">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    places = BeermappingApi.places_in(&quot;kempele&quot;)</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="25">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    expect(places.size).to eq(0)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="26">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="27">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="28">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  it &quot;if several places ...&quot; do</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="29">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    canned_answer = &lt;&lt;-END_OF_STRING</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="30">
-          
-          
-          <code class="ruby">&lt;?xml version=&#39;1.0&#39; encoding=&#39;utf-8&#39; ?&gt;&lt;bmp_locations&gt;&lt;location&gt;&lt;id&gt;6742&lt;/id&gt;&lt;name&gt;Pullman Bar&lt;/name&gt;&lt;status&gt;Beer Bar&lt;/status&gt;&lt;reviewlink&gt;http://beermapping.com/maps/reviews/reviews.php?locid=6742&lt;/reviewlink&gt;&lt;proxylink&gt;http://beermapping.com/maps/proxymaps.php?locid=6742&amp;amp;d=5&lt;/proxylink&gt;&lt;blogmap&gt;http://beermapping.com/maps/blogproxy.php?locid=6742&amp;amp;d=1&amp;amp;type=norm&lt;/blogmap&gt;&lt;street&gt;Kaivokatu 1&lt;/street&gt;&lt;city&gt;Helsinki&lt;/city&gt;&lt;state&gt;&lt;/state&gt;&lt;zip&gt;00100&lt;/zip&gt;&lt;country&gt;Finland&lt;/country&gt;&lt;phone&gt;+358 9 0307 22&lt;/phone&gt;&lt;overall&gt;72.500025&lt;/overall&gt;&lt;imagecount&gt;0&lt;/imagecount&gt;&lt;/location&gt;&lt;location&gt;&lt;id&gt;6743&lt;/id&gt;&lt;name&gt;Belge&lt;/name&gt;&lt;status&gt;Beer Bar&lt;/status&gt;&lt;reviewlink&gt;http://beermapping.com/maps/reviews/reviews.php?locid=6743&lt;/reviewlink&gt;&lt;proxylink&gt;http://beermapping.com/maps/proxymaps.php?locid=6743&amp;amp;d=5&lt;/proxylink&gt;&lt;blogmap&gt;http://beermapping.com/maps/blogproxy.php?locid=6743&amp;amp;d=1&amp;amp;type=norm&lt;/blogmap&gt;&lt;street&gt;Kluuvikatu 5&lt;/street&gt;&lt;city&gt;Helsinki&lt;/city&gt;&lt;state&gt;&lt;/state&gt;&lt;zip&gt;00100&lt;/zip&gt;&lt;country&gt;Finland&lt;/country&gt;&lt;phone&gt;+358 10 766 35&lt;/phone&gt;&lt;overall&gt;67.499925&lt;/overall&gt;&lt;imagecount&gt;1&lt;/imagecount&gt;&lt;/location&gt;&lt;location&gt;&lt;id&gt;6919&lt;/id&gt;&lt;name&gt;Suomenlinnan Panimo&lt;/name&gt;&lt;status&gt;Brewpub&lt;/status&gt;&lt;reviewlink&gt;http://beermapping.com/maps/reviews/reviews.php?locid=6919&lt;/reviewlink&gt;&lt;proxylink&gt;http://beermapping.com/maps/proxymaps.php?locid=6919&amp;amp;d=5&lt;/proxylink&gt;&lt;blogmap&gt;http://beermapping.com/maps/blogproxy.php?locid=6919&amp;amp;d=1&amp;amp;type=norm&lt;/blogmap&gt;&lt;street&gt;Rantakasarmi&lt;/street&gt;&lt;city&gt;Helsinki&lt;/city&gt;&lt;state&gt;&lt;/state&gt;&lt;zip&gt;00190&lt;/zip&gt;&lt;country&gt;Finland&lt;/country&gt;&lt;phone&gt;+358 9 228 5030&lt;/phone&gt;&lt;overall&gt;69.166625&lt;/overall&gt;&lt;imagecount&gt;0&lt;/imagecount&gt;&lt;/location&gt;&lt;location&gt;&lt;id&gt;12408&lt;/id&gt;&lt;name&gt;St. Urho&#39;s Pub&lt;/name&gt;&lt;status&gt;Beer Bar&lt;/status&gt;&lt;reviewlink&gt;http://beermapping.com/maps/reviews/reviews.php?locid=12408&lt;/reviewlink&gt;&lt;proxylink&gt;http://beermapping.com/maps/proxymaps.php?locid=12408&amp;amp;d=5&lt;/proxylink&gt;&lt;blogmap&gt;http://beermapping.com/maps/blogproxy.php?locid=12408&amp;amp;d=1&amp;amp;type=norm&lt;/blogmap&gt;&lt;street&gt;Museokatu 10&lt;/street&gt;&lt;city&gt;Helsinki&lt;/city&gt;&lt;state&gt;&lt;/state&gt;&lt;zip&gt;00100&lt;/zip&gt;&lt;country&gt;Finland&lt;/country&gt;&lt;phone&gt;+358 9 5807 7222&lt;/phone&gt;&lt;overall&gt;95&lt;/overall&gt;&lt;imagecount&gt;0&lt;/imagecount&gt;&lt;/location&gt;&lt;location&gt;&lt;id&gt;12409&lt;/id&gt;&lt;name&gt;Kaisla&lt;/name&gt;&lt;status&gt;Beer Bar&lt;/status&gt;&lt;reviewlink&gt;http://beermapping.com/maps/reviews/reviews.php?locid=12409&lt;/reviewlink&gt;&lt;proxylink&gt;http://beermapping.com/maps/proxymaps.php?locid=12409&amp;amp;d=5&lt;/proxylink&gt;&lt;blogmap&gt;http://beermapping.com/maps/blogproxy.php?locid=12409&amp;amp;d=1&amp;amp;type=norm&lt;/blogmap&gt;&lt;street&gt;Vilhonkatu 4&lt;/street&gt;&lt;city&gt;Helsinki&lt;/city&gt;&lt;state&gt;&lt;/state&gt;&lt;zip&gt;00100&lt;/zip&gt;&lt;country&gt;Finland&lt;/country&gt;&lt;phone&gt;+358 10 76 63850&lt;/phone&gt;&lt;overall&gt;83.3334&lt;/overall&gt;&lt;imagecount&gt;0&lt;/imagecount&gt;&lt;/location&gt;&lt;location&gt;&lt;id&gt;12410&lt;/id&gt;&lt;name&gt;Pikkulintu&lt;/name&gt;&lt;status&gt;Beer Bar&lt;/status&gt;&lt;reviewlink&gt;http://beermapping.com/maps/reviews/reviews.php?locid=12410&lt;/reviewlink&gt;&lt;proxylink&gt;http://beermapping.com/maps/proxymaps.php?locid=12410&amp;amp;d=5&lt;/proxylink&gt;&lt;blogmap&gt;http://beermapping.com/maps/blogproxy.php?locid=12410&amp;amp;d=1&amp;amp;type=norm&lt;/blogmap&gt;&lt;street&gt;Klaavuntie 11&lt;/street&gt;&lt;city&gt;Helsinki&lt;/city&gt;&lt;state&gt;&lt;/state&gt;&lt;zip&gt;00910&lt;/zip&gt;&lt;country&gt;Finland&lt;/country&gt;&lt;phone&gt;+358 9 321 5040&lt;/phone&gt;&lt;overall&gt;91.6667&lt;/overall&gt;&lt;imagecount&gt;0&lt;/imagecount&gt;&lt;/location&gt;&lt;location&gt;&lt;id&gt;18418&lt;/id&gt;&lt;name&gt;Bryggeri Helsinki&lt;/name&gt;&lt;status&gt;Brewpub&lt;/status&gt;&lt;reviewlink&gt;http://beermapping.com/maps/reviews/reviews.php?locid=18418&lt;/reviewlink&gt;&lt;proxylink&gt;http://beermapping.com/maps/proxymaps.php?locid=18418&amp;amp;d=5&lt;/proxylink&gt;&lt;blogmap&gt;http://beermapping.com/maps/blogproxy.php?locid=18418&amp;amp;d=1&amp;amp;type=norm&lt;/blogmap&gt;&lt;street&gt;Sofiankatu 2&lt;/street&gt;&lt;city&gt;Helsinki&lt;/city&gt;&lt;state&gt;&lt;/state&gt;&lt;zip&gt;FI-00170&lt;/zip&gt;&lt;country&gt;Finland&lt;/country&gt;&lt;phone&gt;010 235 2500&lt;/phone&gt;&lt;overall&gt;0&lt;/overall&gt;&lt;imagecount&gt;0&lt;/imagecount&gt;&lt;/location&gt;&lt;/bmp_locations&gt;</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="31">
+        <li class="never" data-hits="" data-linenumber="24">
           
           
           <code class="ruby">    END_OF_STRING</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="32">
+        <li class="covered" data-hits="1" data-linenumber="25">
           <span class="hits">1</span>
           
-          <code class="ruby">    stub_request(:get, /.*helsinki/).to_return(body: canned_answer, headers: {&#39;Content-Type&#39; =&gt; &quot;text/xml&quot; })</code>
+          <code class="ruby">    stub_request(:get, /.*kempele/).to_return(body: canned_answer, headers:   { &#39;Content-Type&#39; =&gt; &quot;text/xml&quot; })</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="33">
-          
-          
-          <code class="ruby">    </code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="34">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    places = BeermappingApi.places_in(&quot;helsinki&quot;)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="35">
+        <li class="never" data-hits="" data-linenumber="26">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="36">
+        <li class="covered" data-hits="1" data-linenumber="27">
           <span class="hits">1</span>
           
-          <code class="ruby">    expect(places[0].name).to eq(&quot;Pullman Bar&quot;)</code>
+          <code class="ruby">    places = BeermappingApi.places_in(&quot;kempele&quot;)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="37">
+        <li class="covered" data-hits="1" data-linenumber="28">
           <span class="hits">1</span>
           
-          <code class="ruby">    expect(places[2].name).to eq(&quot;Suomenlinnan Panimo&quot;)</code>
+          <code class="ruby">    expect(places.size).to eq(0)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="38">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    expect(places[6].name).to eq(&quot;Bryggeri Helsinki&quot;)</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="39">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    expect(places.size).to eq(7)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="40">
+        <li class="never" data-hits="" data-linenumber="29">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="41">
+        <li class="never" data-hits="" data-linenumber="30">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="31">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  it &quot;when HTTP GET returns several entries an array with Place objects is returned&quot; do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="32">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    canned_answer = &lt;&lt;-END_OF_STRING</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="33">
+          
+          
+          <code class="ruby">&lt;?xml version=&#39;1.0&#39; encoding=&#39;utf-8&#39; ?&gt;&lt;bmp_locations&gt;&lt;location&gt;&lt;id&gt;6742&lt;/id&gt;&lt;name&gt;Pullman Bar&lt;/name&gt;&lt;status&gt;Beer Bar&lt;/status&gt;&lt;reviewlink&gt;http://beermapping.com/maps/reviews/reviews.php?locid=6742&lt;/reviewlink&gt;&lt;proxylink&gt;http://beermapping.com/maps/proxymaps.php?locid=6742&amp;amp;d=5&lt;/proxylink&gt;&lt;blogmap&gt;http://beermapping.com/maps/blogproxy.php?locid=6742&amp;amp;d=1&amp;amp;type=norm&lt;/blogmap&gt;&lt;street&gt;Kaivokatu 1&lt;/street&gt;&lt;city&gt;Helsinki&lt;/city&gt;&lt;state&gt;&lt;/state&gt;&lt;zip&gt;00100&lt;/zip&gt;&lt;country&gt;Finland&lt;/country&gt;&lt;phone&gt;+358 9 0307 22&lt;/phone&gt;&lt;overall&gt;72.500025&lt;/overall&gt;&lt;imagecount&gt;0&lt;/imagecount&gt;&lt;/location&gt;&lt;location&gt;&lt;id&gt;6743&lt;/id&gt;&lt;name&gt;Belge&lt;/name&gt;&lt;status&gt;Beer Bar&lt;/status&gt;&lt;reviewlink&gt;http://beermapping.com/maps/reviews/reviews.php?locid=6743&lt;/reviewlink&gt;&lt;proxylink&gt;http://beermapping.com/maps/proxymaps.php?locid=6743&amp;amp;d=5&lt;/proxylink&gt;&lt;blogmap&gt;http://beermapping.com/maps/blogproxy.php?locid=6743&amp;amp;d=1&amp;amp;type=norm&lt;/blogmap&gt;&lt;street&gt;Kluuvikatu 5&lt;/street&gt;&lt;city&gt;Helsinki&lt;/city&gt;&lt;state&gt;&lt;/state&gt;&lt;zip&gt;00100&lt;/zip&gt;&lt;country&gt;Finland&lt;/country&gt;&lt;phone&gt;+358 10 766 35&lt;/phone&gt;&lt;overall&gt;67.499925&lt;/overall&gt;&lt;imagecount&gt;1&lt;/imagecount&gt;&lt;/location&gt;&lt;location&gt;&lt;id&gt;6919&lt;/id&gt;&lt;name&gt;Suomenlinnan Panimo&lt;/name&gt;&lt;status&gt;Brewpub&lt;/status&gt;&lt;reviewlink&gt;http://beermapping.com/maps/reviews/reviews.php?locid=6919&lt;/reviewlink&gt;&lt;proxylink&gt;http://beermapping.com/maps/proxymaps.php?locid=6919&amp;amp;d=5&lt;/proxylink&gt;&lt;blogmap&gt;http://beermapping.com/maps/blogproxy.php?locid=6919&amp;amp;d=1&amp;amp;type=norm&lt;/blogmap&gt;&lt;street&gt;Rantakasarmi&lt;/street&gt;&lt;city&gt;Helsinki&lt;/city&gt;&lt;state&gt;&lt;/state&gt;&lt;zip&gt;00190&lt;/zip&gt;&lt;country&gt;Finland&lt;/country&gt;&lt;phone&gt;+358 9 228 5030&lt;/phone&gt;&lt;overall&gt;69.166625&lt;/overall&gt;&lt;imagecount&gt;0&lt;/imagecount&gt;&lt;/location&gt;&lt;location&gt;&lt;id&gt;12408&lt;/id&gt;&lt;name&gt;St. Urho&#39;s Pub&lt;/name&gt;&lt;status&gt;Beer Bar&lt;/status&gt;&lt;reviewlink&gt;http://beermapping.com/maps/reviews/reviews.php?locid=12408&lt;/reviewlink&gt;&lt;proxylink&gt;http://beermapping.com/maps/proxymaps.php?locid=12408&amp;amp;d=5&lt;/proxylink&gt;&lt;blogmap&gt;http://beermapping.com/maps/blogproxy.php?locid=12408&amp;amp;d=1&amp;amp;type=norm&lt;/blogmap&gt;&lt;street&gt;Museokatu 10&lt;/street&gt;&lt;city&gt;Helsinki&lt;/city&gt;&lt;state&gt;&lt;/state&gt;&lt;zip&gt;00100&lt;/zip&gt;&lt;country&gt;Finland&lt;/country&gt;&lt;phone&gt;+358 9 5807 7222&lt;/phone&gt;&lt;overall&gt;95&lt;/overall&gt;&lt;imagecount&gt;0&lt;/imagecount&gt;&lt;/location&gt;&lt;location&gt;&lt;id&gt;12409&lt;/id&gt;&lt;name&gt;Kaisla&lt;/name&gt;&lt;status&gt;Beer Bar&lt;/status&gt;&lt;reviewlink&gt;http://beermapping.com/maps/reviews/reviews.php?locid=12409&lt;/reviewlink&gt;&lt;proxylink&gt;http://beermapping.com/maps/proxymaps.php?locid=12409&amp;amp;d=5&lt;/proxylink&gt;&lt;blogmap&gt;http://beermapping.com/maps/blogproxy.php?locid=12409&amp;amp;d=1&amp;amp;type=norm&lt;/blogmap&gt;&lt;street&gt;Vilhonkatu 4&lt;/street&gt;&lt;city&gt;Helsinki&lt;/city&gt;&lt;state&gt;&lt;/state&gt;&lt;zip&gt;00100&lt;/zip&gt;&lt;country&gt;Finland&lt;/country&gt;&lt;phone&gt;+358 10 76 63850&lt;/phone&gt;&lt;overall&gt;83.3334&lt;/overall&gt;&lt;imagecount&gt;0&lt;/imagecount&gt;&lt;/location&gt;&lt;location&gt;&lt;id&gt;12410&lt;/id&gt;&lt;name&gt;Pikkulintu&lt;/name&gt;&lt;status&gt;Beer Bar&lt;/status&gt;&lt;reviewlink&gt;http://beermapping.com/maps/reviews/reviews.php?locid=12410&lt;/reviewlink&gt;&lt;proxylink&gt;http://beermapping.com/maps/proxymaps.php?locid=12410&amp;amp;d=5&lt;/proxylink&gt;&lt;blogmap&gt;http://beermapping.com/maps/blogproxy.php?locid=12410&amp;amp;d=1&amp;amp;type=norm&lt;/blogmap&gt;&lt;street&gt;Klaavuntie 11&lt;/street&gt;&lt;city&gt;Helsinki&lt;/city&gt;&lt;state&gt;&lt;/state&gt;&lt;zip&gt;00910&lt;/zip&gt;&lt;country&gt;Finland&lt;/country&gt;&lt;phone&gt;+358 9 321 5040&lt;/phone&gt;&lt;overall&gt;91.6667&lt;/overall&gt;&lt;imagecount&gt;0&lt;/imagecount&gt;&lt;/location&gt;&lt;location&gt;&lt;id&gt;18418&lt;/id&gt;&lt;name&gt;Bryggeri Helsinki&lt;/name&gt;&lt;status&gt;Brewpub&lt;/status&gt;&lt;reviewlink&gt;http://beermapping.com/maps/reviews/reviews.php?locid=18418&lt;/reviewlink&gt;&lt;proxylink&gt;http://beermapping.com/maps/proxymaps.php?locid=18418&amp;amp;d=5&lt;/proxylink&gt;&lt;blogmap&gt;http://beermapping.com/maps/blogproxy.php?locid=18418&amp;amp;d=1&amp;amp;type=norm&lt;/blogmap&gt;&lt;street&gt;Sofiankatu 2&lt;/street&gt;&lt;city&gt;Helsinki&lt;/city&gt;&lt;state&gt;&lt;/state&gt;&lt;zip&gt;FI-00170&lt;/zip&gt;&lt;country&gt;Finland&lt;/country&gt;&lt;phone&gt;010 235 2500&lt;/phone&gt;&lt;overall&gt;0&lt;/overall&gt;&lt;imagecount&gt;0&lt;/imagecount&gt;&lt;/location&gt;&lt;/bmp_locations&gt;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="34">
+          
+          
+          <code class="ruby">    END_OF_STRING</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="35">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    stub_request(:get, /.*helsinki/).to_return(body: canned_answer, headers: {&#39;Content-Type&#39; =&gt; &quot;text/xml&quot; })</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="36">
+          
+          
+          <code class="ruby">    </code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="37">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    places = BeermappingApi.places_in(&quot;helsinki&quot;)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="38">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="39">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    expect(places[0].name).to eq(&quot;Pullman Bar&quot;)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="40">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    expect(places[2].name).to eq(&quot;Suomenlinnan Panimo&quot;)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="41">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    expect(places[6].name).to eq(&quot;Bryggeri Helsinki&quot;)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="42">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    expect(places.size).to eq(7)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="43">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="44">
           
           
           <code class="ruby">end</code>
