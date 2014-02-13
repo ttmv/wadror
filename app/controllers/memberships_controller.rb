@@ -29,8 +29,9 @@ class MembershipsController < ApplicationController
       @membership = Membership.new(membership_params) 
       @membership.user_id = current_user.id 
       respond_to do |format|
-        if @membership.save
-          format.html { redirect_to @membership, notice: 'Membership was successfully created.' }
+        if @membership.save          
+          @beer_club = BeerClub.find_by id:@membership.beer_club_id
+          format.html { redirect_to @beer_club, notice: "#{current_user.username}, welcome to the club!" }
           format.json { render action: 'show', status: :created, location: @membership }
         else
           @beer_clubs = BeerClub.all
