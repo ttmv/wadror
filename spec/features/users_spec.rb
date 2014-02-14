@@ -61,7 +61,8 @@ describe "User" do
 
     it "has favorite style on own page if has rated beers" do
       create_beers_with_ratings(1,2,user)
-      beer = FactoryGirl.create(:beer, style:"IPA")
+      style = FactoryGirl.create(:style, name:"IPA") 
+      beer = FactoryGirl.create(:beer, style:style)
       best = FactoryGirl.create(:rating, beer:beer, score:30, user:user)
 
       visit user_path(user)

@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe "beer" do
+  let!(:style) { FactoryGirl.create :style }
   let!(:brewery) { FactoryGirl.create :brewery, name:"Koff" }
   let!(:user) { FactoryGirl.create :user }
 
@@ -9,7 +10,6 @@ describe "beer" do
   end
 
   it "can be added if name is valid" do
-    
     visit new_beer_path
     fill_in('beer_name', with: 'new beer')
 
