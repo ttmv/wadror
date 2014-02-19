@@ -42,6 +42,24 @@ describe "Beerlist page" do
     find('table').find('tr:nth-child(3)').should have_content('Lechte Weisse')
     find('table').find('tr:nth-child(4)').should have_content('Nikolai')
   end
+
+  it "is ordered by style when column name Style is clicked", js:true do
+    visit beerlist_path
+    click_link('Style')
+
+    find('table').find('tr:nth-child(2)').should have_content('Lager')
+    find('table').find('tr:nth-child(3)').should have_content('Rauchbier')
+    find('table').find('tr:nth-child(4)').should have_content('Weizen')
+  end
+
+  it "is ordered by brewery name when brewery column is clicked", js:true do
+    visit beerlist_path
+    click_link('Brewery')
+
+    find('table').find('tr:nth-child(2)').should have_content('Ayinger')
+    find('table').find('tr:nth-child(3)').should have_content('Koff')
+    find('table').find('tr:nth-child(4)').should have_content('Schlenkerla')
+  end
 end
 
 
