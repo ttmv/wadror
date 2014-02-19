@@ -22,6 +22,7 @@ group :test do
   gem 'launchy'
   gem 'simplecov', require: false
   gem 'webmock'
+  gem 'database_cleaner', '< 1.1.0'
 end
 
 
@@ -70,3 +71,5 @@ gem 'httparty'
 gem "rails-settings-cached", "0.3.1"
 
 gem 'jquery-turbolinks'
+
+gem 'selenium-webdriver' 
