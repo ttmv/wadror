@@ -23,6 +23,10 @@ Ratebeer::Application.routes.draw do
   get 'ngbeerlist', to:'beers#nglist'
   get 'brewerylist', to:'breweries#list'
 
+  resources :breweries do
+    post 'toggle_activity', on: :member
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
