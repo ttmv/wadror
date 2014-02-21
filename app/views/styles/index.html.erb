@@ -16,8 +16,10 @@
       <tr>
         <td><%= link_to style.name, style %></td>
         <td><%= style.description %></td>
-        <td><%= link_to 'Edit', edit_style_path(style), class:'btn btn-primary btn-xs' %></td>
+       <!--- <td><%= link_to 'Edit', edit_style_path(style), class:'btn btn-primary btn-xs' %></td>
         <td><%= link_to 'Destroy', style, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-danger btn-xs' %></td>
+-->
+        <td><%= edit_and_destroy_buttons(style) %></td>
       </tr>
     <% end %>
   </tbody>
