@@ -33,6 +33,10 @@ class User < ActiveRecord::Base
     avgs = count_brewery_averages(breweries)
     avgs.key(avgs.values.max).name    
   end
+
+  def self.top(n)
+    all.sort_by{ |u| -(u.ratings.count||0) }.take(n)
+  end
 end 
 
 def count_avgs(styles)
@@ -58,3 +62,5 @@ def count_brewery_averages(breweries)
 
   avgs
 end
+
+

@@ -8,4 +8,30 @@ Number of ratings: <%= @ratings.count %>
  <% end %>
 </ul>
 
+<h2>Recent ratings</h2>
+<ul>
+ <% @ratings.recent.each do |rating| %>
+   <li> <%= rating %>  <%= link_to rating.user.username, rating.user %> </li>
+ <% end %>
+</ul>
+
+<h2> top breweries </h2>
+
+<%= render 'list', top_list: @top_breweries %>
+
+<h2> top beers </h2>
+
+<%= render 'list', top_list: @top_beers %>
+
+<h2> top styles </h2>
+
+<%= render 'list', top_list: @top_styles %>
+
+<h2> top raters </h2>
+<ul>
+ <% @top_raters.each do |user| %>
+   <li> <%= link_to user.username, user %> <%= user.ratings.count %> </li>
+ <% end %>
+</ul>
+
 <!--- <%= link_to 'New rating', new_rating_path %> -->
