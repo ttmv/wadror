@@ -19,7 +19,7 @@ Established at <%= @brewery.year %>
 <p>
   Brewery has <%= pluralize(@brewery.ratings.count, 'rating')%>.
   <% if !@brewery.ratings.empty? %>
-    Average <%= @brewery.average_rating %>
+    Average <%= round(@brewery.average_rating) %>
   <% end %>
 </p>
 

@@ -15,6 +15,7 @@ end
 group :development, :test do
   gem 'sqlite3'
   gem 'rspec-rails', '~> 2.14.1'
+  gem 'rack-mini-profiler'
 end
 
 group :production do
@@ -79,3 +80,5 @@ gem "rails-settings-cached", "0.3.1"
 gem 'jquery-turbolinks'
 
 gem 'selenium-webdriver' 
+
+
