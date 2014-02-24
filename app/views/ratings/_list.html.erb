@@ -1,6 +1,25 @@
-
+<!---
 <ul>
  <% top_list.each do |top| %>
    <li> <%= link_to top.name, top %> <%= round(top.average_rating) %> </li>
  <% end %>
-</ul>
+</ul> -->
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>  </th>
+      <th> Average </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% top_list.each do |top| %>
+      <tr>
+        <td> <%= link_to top.name, top %> </td>
+        <td> <%= round(top.average_rating) %> </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
