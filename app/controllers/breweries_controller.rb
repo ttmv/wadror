@@ -2,6 +2,8 @@ class BreweriesController < ApplicationController
   before_action :set_brewery, only: [:show, :edit, :update, :destroy]
   before_action :ensure_that_signed_in, except: [:index, :show, :list]
   before_action :ensure_that_admin, only: [:destroy]
+  before_action :skip_if_cached, only: [:index]
+  before_action :expire, only: [:create, :update, :destroy, :toggle_activity]
 
   def list
   end
@@ -47,7 +49,6 @@ class BreweriesController < ApplicationController
   # POST /breweries.json
   def create
     @brewery = Brewery.new(brewery_params)
-
     respond_to do |format|
       if @brewery.save
         format.html { redirect_to @brewery, notice: 'Brewery was successfully created.' }
@@ -92,5 +93,13 @@ class BreweriesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def brewery_params
       params.require(:brewery).permit(:name, :year, :active)
+    end
+
+    def skip_if_cached
+      return render :index if fragment_exist?( 'brewerylist' )
+    end
+
+    def expire
+      expire_fragment('brewerylist')
     end
 end

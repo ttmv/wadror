@@ -15,19 +15,19 @@ Number of ratings: <%= @ratings.count %>
  <% end %>
 </ul>
 
-<h2> top breweries </h2>
+<h2> Best breweries </h2>
 
 <%= render 'list', top_list: @top_breweries %>
 
-<h2> top beers </h2>
+<h2> Best beers </h2>
 
 <%= render 'list', top_list: @top_beers %>
 
-<h2> top styles </h2>
+<h2> Best styles </h2>
 
 <%= render 'list', top_list: @top_styles %>
 
-<h2> top raters </h2>
+<h2> Most active raters </h2>
 <ul>
  <% @top_raters.each do |user| %>
    <li> <%= link_to user.username, user %> <%= user.ratings.count %> </li>
